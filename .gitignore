@@ -30,3 +30,7 @@ compile_commands.json
 # Hidden files created by the OS.
 .DS_Store
 Thumbs.db
+
+# Security Keys (CRITICAL)
+ssh_host_rsa_key
+ssh_host_rsa_key.pub
