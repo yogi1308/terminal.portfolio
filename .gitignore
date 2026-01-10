@@ -1,0 +1,32 @@
+# --- Compiled Binaries ---
+# These are the actual programs created by the compiler.
+# Since they only run on your specific Linux/WSL setup, 
+# others should compile their own from your source.
+build/
+bin/
+out/
+hello
+portfolio
+
+# --- CMake Temporary Files ---
+# CMake generates a lot of local configuration files 
+# that are specific to your machine's file paths.
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+
+# --- VS Code & IDE Private Data ---
+# These store your personal window layout and local settings.
+.vscode/
+.vs/
+*.swp
+*.swo
+
+# --- System Files ---
+# Hidden files created by the OS.
+.DS_Store
+Thumbs.db
