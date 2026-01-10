@@ -2,7 +2,7 @@
 #include <ftxui/screen/screen.hpp>
 #include <iostream>
  
-int window() {
+std::string window() {
   using namespace ftxui;
  
   Element document = hbox({
@@ -13,5 +13,6 @@ int window() {
  
   auto screen = Screen::Create(Dimension::Full(), Dimension::Fit(document));
   Render(screen, document);
-  screen.Print();
+  std::string main_window = screen.ToString();
+  return main_window;
 }

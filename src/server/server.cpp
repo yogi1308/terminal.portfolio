@@ -3,6 +3,8 @@
 #include <libssh/libssh.h>
 #include <libssh/server.h>
 
+#include "../ui/main-window.hpp"
+
 #include "server.hpp"
 
 
@@ -75,8 +77,14 @@ void server()
 
         // 3. Send data and wait for input
         if (channel) {
-            std::string greeting = "Hello from your C++ Server!\n\r";
-            ssh_channel_write(channel, greeting.c_str(), greeting.length());
+            // std::string greeting = "Hello from your C++ Server!\n\r";
+            // ssh_channel_write(channel, greeting.c_str(), greeting.length());
+
+            // Inside server.cpp after shell is accepted:
+            std::string ui_output = window() + "\r\n";
+
+            // Remember to add \r for correct terminal alignment
+            ssh_channel_write(channel, ui_output.c_str(), ui_output.length());
 
             char buffer[1];
             while (ssh_channel_read(channel, buffer, 1, 0) > 0) {
