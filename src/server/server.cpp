@@ -2,7 +2,6 @@
 #include <thread>
 #include <libssh/libssh.h>
 #include <libssh/server.h>
-#include "../ui/main-window.hpp"
 #include "session_handler.hpp"
 #include "server.hpp"
 
