@@ -2,8 +2,11 @@
 #include <libssh/server.h>
 #include "auth_setup.hpp"
 
-void auth_and_setup(bool &shell_started, ssh_channel &channel, ssh_session session) {
+ssh_channel auth_and_setup(ssh_session session) {
     ssh_message msg;
+    bool shell_started = false;
+    ssh_channel channel = nullptr;
+
     while (!shell_started && (msg = ssh_message_get(session))) {
         int type = ssh_message_type(msg);
         int subtype = ssh_message_subtype(msg);
@@ -27,4 +30,6 @@ void auth_and_setup(bool &shell_started, ssh_channel &channel, ssh_session sessi
         ssh_message_free(msg);
     }
 
+    return channel;
+    
 }

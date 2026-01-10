@@ -17,10 +17,7 @@ void handle_client_session(ssh_session session) {
         return;
     }
 
-    ssh_channel channel = nullptr;
-    bool shell_started = false;
-
-    auth_and_setup(shell_started, channel, session);
+    ssh_channel channel = auth_and_setup(session); // changes channel and shell 
 
     routes(channel);
 
