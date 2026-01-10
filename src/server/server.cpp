@@ -75,14 +75,16 @@ void server()
 
         // 3. Send data and wait for input
         if (channel) {
-            std::string greeting = "Hello from your C++ Server!\n";
+            std::string greeting = "Hello from your C++ Server!\n\r";
             ssh_channel_write(channel, greeting.c_str(), greeting.length());
 
             char buffer[1];
             while (ssh_channel_read(channel, buffer, 1, 0) > 0) {
                 if (buffer[0] == 'q') break;
-                // Echo back for testing
-                ssh_channel_write(channel, buffer, 1);
+                else if (buffer[0] == 'c') {
+                    std::string switched = "C Entered\n\r";
+                    ssh_channel_write(channel, switched.c_str(), switched.length());
+                }
             }
         }
 
