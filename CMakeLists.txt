@@ -20,6 +20,7 @@ find_package(libssh REQUIRED)
 add_executable(portfolio 
     src/main.cpp 
     src/server/server.cpp
+    src/server/session_handler.cpp
     src/ui/main-window.cpp
     src/ui/tabs/about-me.cpp
     src/ui/tabs/contact-me.cpp
