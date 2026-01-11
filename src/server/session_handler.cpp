@@ -36,10 +36,13 @@ void handle_client_session(ssh_session session) {
         return;
     }
 
-    ssh_channel channel = auth_and_setup(session); // changes channel and shell 
+    int width = 80;
+    int height = 24;
+
+    ssh_channel channel = auth_and_setup(session, width, height); // changes channel and shell 
 
     if (channel != nullptr) {
-        routes(channel);
+        routes(channel, width, height);
     } else {
         std::cerr << "Client failed to setup shell." << std::endl;
     }
@@ -55,3 +58,5 @@ void handle_client_session(ssh_session session) {
     ssh_free(session);
     std::cout << "[Thread] Session finished and closed." << std::endl;
 }
+
+//TODO: CLEAN UP TRACKING NUMBER OF THREADS BEFORE DEPLOYING
