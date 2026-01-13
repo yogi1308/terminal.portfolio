@@ -20,10 +20,8 @@ find_package(libssh REQUIRED)
 add_executable(portfolio 
     src/main.cpp 
     src/server/server.cpp
+    src/server/sessions.cpp
     src/ui/main-window.cpp
-    src/ui/tabs/about-me.cpp
-    src/ui/tabs/contact-me.cpp
-    src/ui/tabs/exp.cpp
 )
 
 # 4. Link everything together
