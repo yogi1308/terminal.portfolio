@@ -2,7 +2,7 @@
 #include <ftxui/screen/screen.hpp>
 #include <iostream>
  
-std::string window() {
+std::string window(int width, int height) {
     using namespace ftxui;
  
     //   Element document = hbox({
@@ -11,7 +11,7 @@ std::string window() {
     //     text("right")  | border,
     //   });
  
-    auto screen = Screen::Create(Dimension::Full(), Dimension::Full());
+    auto screen = Screen::Create(Dimension::Fixed(width), Dimension::Fixed(height));
     auto message = text("Hello!") | border;
     //   Render(screen, document);
     Render(screen, message);
